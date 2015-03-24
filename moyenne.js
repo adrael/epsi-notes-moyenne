@@ -3,7 +3,7 @@ var averageNotation = 0,
 
 notes.each(
 	function(index, element) {
-		averageNotation += parseFloat(element.innerText);
+		averageNotation += parseFloat(element.innerHTML);
 	}
 );
 
