@@ -1,13 +1,20 @@
-var averageNotation = 0,
-	notes = $('.moy-note'),
-    nbAbsent = 0;
+var nbAbsent = 0,
+	averageNotation = 0,
+	notes = $('.moy-note');
 
 notes.each(
 	function(index, element) {
-        if(element.innerHTML != "Absent")
+
+        if(element.innerHTML !== "Absent") {
+		    
 		    averageNotation += parseFloat(element.innerHTML);
-        else
-            nbAbsent++;
+
+        } else {
+
+            ++nbAbsent;
+
+        }
+        
 	}
 );
 
