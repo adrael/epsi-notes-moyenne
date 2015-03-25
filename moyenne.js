@@ -1,20 +1,19 @@
 var nbNotes = 0,
-	averageNotation = 0,
-	notes = $('.moy-note');
+    sum = 0,
+    notes = document.querySelectorAll('.moy-note');
 
-notes.each(
-	function(index, element) {
+for (var i = 0, size = notes.length; i < size; ++i) {
+    var note = parseFloat(notes[i].innerHTML).toFixed(2);
+    if (isNaN(note)) {
+        continue;
+    }
+    sum += Number(note);
+    nbNotes++;
+}
 
-        if(element.innerHTML !== "Absent") {
-		    
-		    averageNotation += parseFloat(element.innerHTML);
-		    ++nbNotes;
+var title = document.createElement('h3');
+title.innerHTML = (nbrNotes > 0) ? 'Moyenne générale estimée : ' + (sum / nbNotes).toFixed(2) : 'Aucune de note valide';
+document.querySelector('.page-title').appendChild(title);
 
-        }
-        
-	}
-);
-
-averageNotation = (averageNotation / nbNotes).toFixed(2);
-
-$('.page-title').append($('<h3>Moyenne générale estimée : ' + averageNotation + '</h3>'));
+// pour le style
+document.body.style.width = '100%';
